@@ -40,7 +40,6 @@ exports.handle = (client) => {
 
     promt() {
       client.addResponse('app:response:name:greeting')
-      client.addTextResponse('Hello world, I mean human')
       client.done()
     }
   })
@@ -52,8 +51,7 @@ exports.handle = (client) => {
 
     promt() {
       client.addResponse('app:response:name:goodbye')
-      client.addTextResponse('See you later!')
-      client.done();
+      client.done()
     }
   })
 
