@@ -40,6 +40,7 @@ exports.handle = (client) => {
 
     promt() {
       client.addResponse('app:response:name:greeting')
+      client.addTextResponse('Hello world, I mean human')
       client.done()
     }
   })
@@ -51,6 +52,7 @@ exports.handle = (client) => {
 
     promt() {
       client.addResponse('app:response:name:goodbye')
+      client.addTextResponse('See you later!')
       client.done();
     }
   })
@@ -59,19 +61,19 @@ exports.handle = (client) => {
     classifications: {
       // map inbound message classifications to names of streams
       greeting: 'greeting',
-      goodbye: 'goodbye',
+      goodbye: 'goodbye'
     },
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model
       welcome: 'Hello earthling',
-      goodbye: 'goodbye',
+      goodbye: 'goodbye'
     },
     streams: {
       goodbye: handleGoodbye,
       greeting: handleGreeting,
       main: 'onboarding',
       onboarding: [sayHello],
-      end: [untrained],
+      end: [untrained]
     },
   })
 }
