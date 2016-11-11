@@ -38,8 +38,8 @@ exports.handle = (client) => {
       return false
     },
 
-    prompt() {
-      client.addTextResponse('Hello world, I mean human')
+    promt() {
+      client.addResponse('app:response:name:greeting')
       client.done()
     }
   })
@@ -49,17 +49,25 @@ exports.handle = (client) => {
       return false
     },
 
-    prompt() {
-      client.addTextResponse('See you later!')
+    promt() {
+      client.addResponse('app:response:name:goodbye')
       client.done()
     }
   })
 
   client.runFlow({
+    eventHandlers: {
+     // '*' Acts as a catch-all and will map all events not included in this
+     // object to the assigned function
+     '*': untrained,
+   },
     classifications: {
       // map inbound message classifications to names of streams
       greeting: 'greeting',
       goodbye: 'goodbye'
+    },
+    autoResponses: {
+      apology: 'SOrry'
     },
     streams: {
       goodbye: handleGoodbye,
