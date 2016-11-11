@@ -39,7 +39,7 @@ exports.handle = (client) => {
     },
 
     promt() {
-      client.addTextResponse('app:response:name:greeting')
+      client.addResponse('app:response:name:greeting')
       client.done()
     }
   })
@@ -50,7 +50,7 @@ exports.handle = (client) => {
     },
 
     promt() {
-      client.addTextResponse('app:response:name:goodbye')
+      client.addResponse('app:response:name:goodbye')
       client.done();
     }
   })
@@ -63,7 +63,7 @@ exports.handle = (client) => {
     },
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model
-      greeting: 'greeting',
+      welcome: 'Hello earthling',
       goodbye: 'goodbye',
     },
     streams: {
